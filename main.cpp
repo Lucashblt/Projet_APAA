@@ -36,15 +36,11 @@ int main() {
     schedulerInt.setSensorName(&soundSensor, "sound");
     
     while(true){
-        std::cout << "Starting scheduling float" << std::endl;
         schedulerFloat.startScheduling();
-        
-        std::cout << "Starting scheduling bool" << std::endl;
         schedulerBool.startScheduling();
-
-        std::cout << "Starting scheduling int" << std::endl;
         schedulerInt.startScheduling();
     }
+    
     return 0;
 }
 

@@ -44,7 +44,7 @@ Server& Server::operator=(const Server& server) {
 // surcharge operateur <<
 
 template <typename T>
-void Server::dataRcv(const std::string& sensorName ,T dataSens) {
+void Server::dataRcv(const std::string& sensorName, T dataSens) {
     if (consolActivation) {
         consoleWrite(sensorName, dataSens);
     }

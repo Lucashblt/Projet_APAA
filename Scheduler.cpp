@@ -36,11 +36,9 @@ void Scheduler<T>::startScheduling() {
 
         sensor->readData();
         T data = sensor->sendData();
-
         if (server != nullptr) {
             server->dataRcv(name, data);
         }
-
         std::this_thread::sleep_for(interval);
     }
 } 
