@@ -35,7 +35,6 @@ private:
 
     template <typename T>
     void consoleWrite(const std::string& sensorName, T dataSens);
-
     template <typename T>
     void fileWrite(const std::string& sensorName, T dataSens);
 

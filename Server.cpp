@@ -21,9 +21,7 @@ Server::Server(const Server& server) {
     logActivation = server.logActivation;
 }
 
-Server::~Server() {
-
-}
+Server::~Server() {}
 
 void Server::setConsolActivation(bool activateConsole) {
     consolActivation = activateConsole;

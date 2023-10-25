@@ -17,9 +17,7 @@ public:
     ~Scheduler();
 
     void addSensor(Sensor<T>* sensor, std::chrono::milliseconds interval);
-
     void setSensorName(Sensor<T>* sensor, const std::string& name);
-
     void startScheduling();
 
 private:

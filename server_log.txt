@@ -56,3 +56,17 @@ Sensor sensorName Data: 13.2353 at Wed Oct 25 15:23:26 2023
 Sensor temperature Data: 13.2353 at Wed Oct 25 15:23:26 2023
 Sensor sensorName Data: 7.35294 at Wed Oct 25 15:23:27 2023
 Sensor humidity Data: 7.35294 at Wed Oct 25 15:23:27 2023
+Sensor sensorName Data: 23.6471 at Wed Oct 25 15:55:26 2023
+Sensor temperature Data: 23.6471 at Wed Oct 25 15:55:26 2023
+Sensor sensorName Data: 23.1765 at Wed Oct 25 15:55:27 2023
+Sensor humidity Data: 23.1765 at Wed Oct 25 15:55:27 2023
+Sensor sensorName Data: 1 at Wed Oct 25 15:55:29 2023
+Sensor light Data: 1 at Wed Oct 25 15:55:29 2023
+Sensor sensorName Data: 40.4118 at Wed Oct 25 15:56:53 2023
+Sensor temperature Data: 40.4118 at Wed Oct 25 15:56:53 2023
+Sensor sensorName Data: 58.8824 at Wed Oct 25 15:56:54 2023
+Sensor humidity Data: 58.8824 at Wed Oct 25 15:56:54 2023
+Sensor sensorName Data: 0 at Wed Oct 25 15:56:56 2023
+Sensor light Data: 0 at Wed Oct 25 15:56:56 2023
+Sensor sensorName Data: 6 at Wed Oct 25 15:56:59 2023
+Sensor sound Data: 6 at Wed Oct 25 15:56:59 2023

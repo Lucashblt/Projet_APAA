@@ -55,7 +55,6 @@ void Sensor<T>::readData() {
 template <typename T>
 T Sensor<T>::sendData() {
     std::string sensorName = "sensorName";
-    //std::cout << "Sensor Data: " << valSense << std::endl;
     if (server != nullptr) {
         server->dataRcv(sensorName, valSense);
     }
