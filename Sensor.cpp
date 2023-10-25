@@ -4,7 +4,6 @@
 template <typename T>
 Sensor<T>::Sensor() {
     valSense = T();
-    //valSense = generateData();
 }
 //construceur par parametre
 template <typename T>
@@ -29,12 +28,10 @@ T Sensor<T>::generateData() {
 
 template<>
 float Sensor<float>::generateData() {
-    //float val = (rand()%100)/(float)(rand()%20)+1;
     float val = ((rand()%1000)/17.0) +1;
-    // val = static_cast<float>(rand()%100);
     return val;
 }
-/*
+
 template<>
 bool Sensor<bool>::generateData() {
     bool val = false;
@@ -48,7 +45,7 @@ int Sensor<int>::generateData() {
     val = rand()%130;
     return val;
 }
-*/
+
 
 template <typename T>
 void Sensor<T>::readData() {
@@ -71,5 +68,5 @@ void Sensor<T>::setServer(Server* server) {
 }
 
 template class Sensor<float>;
-//template class Sensor<bool>;
-//template class Sensor<int>;
+template class Sensor<bool>;
+template class Sensor<int>;

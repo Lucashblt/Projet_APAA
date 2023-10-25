@@ -43,13 +43,7 @@ Server& Server::operator=(const Server& server) {
     return *this;
 }
 
-
-
-// Explicit instantiations for the supported data types
-template void Server::dataRcv<float>(const std::string& sensorName, float dataSens);
-//template void Server::dataRcv<bool>(const std::string& sensorName, bool dataSens);
-//template void Server::dataRcv<int>(const std::string& sensorName, int dataSens);
-
+// surcharge operateur <<
 
 template <typename T>
 void Server::dataRcv(const std::string& sensorName ,T dataSens) {
@@ -82,6 +76,11 @@ void Server::fileWrite(const std::string& sensorName, T dataSens) {
         Myfile.close();
     }
 }
+
+// Explicit instantiations for the supported data types
+template void Server::dataRcv<float>(const std::string& sensorName, float dataSens);
+template void Server::dataRcv<bool>(const std::string& sensorName, bool dataSens);
+template void Server::dataRcv<int>(const std::string& sensorName, int dataSens);
 
 
 /*
