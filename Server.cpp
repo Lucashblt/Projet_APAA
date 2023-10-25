@@ -42,6 +42,16 @@ Server& Server::operator=(const Server& server) {
 }
 
 // surcharge operateur <<
+/*
+std::ostream& operator<<(std::ostream& os, int dataSens) {
+    os << "Sensor Data: " << std::to_string(dataSens) << std::endl;
+    return os;
+}
+std::ostream& operator<<(std::ostream& os, float dataSens_toString) {
+    os << "Sensor Data: " << std::to_string(dataSens_toString) << std::endl;
+    return os;
+}
+*/
 
 template <typename T>
 void Server::dataRcv(const std::string& sensorName, T dataSens) {
@@ -55,12 +65,12 @@ void Server::dataRcv(const std::string& sensorName, T dataSens) {
 // float et int 
 template <typename T>
 void Server::consoleWrite(const std::string& sensorName, T dataSens) {
-    std::cout << "Sensor "<< sensorName <<  ", Data: " << dataSens << std::endl;
+    std::cout << "Sensor "<< sensorName <<  " data : " << dataSens << std::endl;
 }
 
 template <>
 void Server::consoleWrite<bool>(const std::string& sensorName, bool dataSens) {
-    std::cout <<"Light is " << (dataSens ? "On" : "Off") << std::endl;
+    std::cout <<"Sensor " << sensorName << " is " << (dataSens ? "On" : "Off") << std::endl;
 }
 
 template <typename T>
@@ -70,7 +80,11 @@ void Server::fileWrite(const std::string& sensorName, T dataSens) {
         std::cout << "failed to open" << std::endl;
     } else {
         time_t currentTime = time(nullptr);
-        Myfile << "Sensor "<< sensorName <<" Data: " << dataSens << " at " << ctime(&currentTime);
+        if(sensorName == "light"){
+            Myfile << "Sensor "<< sensorName <<" is " << (dataSens ? "On" : "Off") << " at " << ctime(&currentTime);
+        }else {
+            Myfile << "Sensor "<< sensorName <<" data : " << dataSens << " at " << ctime(&currentTime);
+        }
         Myfile.close();
     }
 }
@@ -79,18 +93,3 @@ void Server::fileWrite(const std::string& sensorName, T dataSens) {
 template void Server::dataRcv<float>(const std::string& sensorName, float dataSens);
 template void Server::dataRcv<bool>(const std::string& sensorName, bool dataSens);
 template void Server::dataRcv<int>(const std::string& sensorName, int dataSens);
-
-
-/*
-
-std::ostream& operator<<(std::ostream& os, int dataSens) {
-    os << "Sensor Data: " << std::to_string(dataSens) << std::endl;
-    return os;
-}
-
-std::ostream& operator<<(std::ostream& os, float dataSens_toString) {
-    os << "Sensor Data: " << std::to_string(dataSens_toString) << std::endl;
-    return os;
-}
-
-*/

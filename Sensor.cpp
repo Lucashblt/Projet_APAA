@@ -46,7 +46,6 @@ int Sensor<int>::generateData() {
     return val;
 }
 
-
 template <typename T>
 void Sensor<T>::readData() {
     valSense = generateData();
