@@ -21,7 +21,7 @@ int main() {
     schedulerFloat.addSensor(&temperatureSensor, std::chrono::seconds(1));
     schedulerFloat.setSensorName(&temperatureSensor, "temperature");
 
-
+    
     std::cout << "Creating humidity sensor" << std::endl;
     Sensor<float> humiditySensor;
     humiditySensor.setServer(&server);
@@ -65,3 +65,33 @@ int main() {
     */
     return 0;
 }
+
+/*
+int main(){
+    srand(time(nullptr));
+
+    Server server;
+    server.setConsolActivation(true); // Enable console output
+    server.setLogActivation(true); // Enable log output
+
+    std::vector<Sensor<float>*> sensors;
+
+    std::cout << "Creating temperature sensor" << std::endl;
+    Sensor<float>* temperatureSensor = new Sensor<float>();
+    temperatureSensor->setServer(&server);
+    sensors.push_back(temperatureSensor);
+
+    // autre capteur
+    Scheduler<float> schedulerFloat(&server);
+
+    std::cout << "Starting Scheduling float" << std::endl;
+    schedulerFloat.startScheduling();
+
+    // Nettoyez les capteurs à la fin du programme
+    for (Sensor<float>* sensor : sensors) {
+        delete sensor;
+    }
+
+    return 0;
+
+}*/

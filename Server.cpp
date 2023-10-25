@@ -47,8 +47,8 @@ Server& Server::operator=(const Server& server) {
 
 // Explicit instantiations for the supported data types
 template void Server::dataRcv<float>(const std::string& sensorName, float dataSens);
-template void Server::dataRcv<bool>(const std::string& sensorName, bool dataSens);
-template void Server::dataRcv<int>(const std::string& sensorName, int dataSens);
+//template void Server::dataRcv<bool>(const std::string& sensorName, bool dataSens);
+//template void Server::dataRcv<int>(const std::string& sensorName, int dataSens);
 
 
 template <typename T>
