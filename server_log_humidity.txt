@@ -1,0 +1,3 @@
+Sensor humidity data : 39.1176 at Thu Oct 26 10:44:03 2023
+Sensor humidity data : 25 at Thu Oct 26 10:44:13 2023
+Sensor humidity data : 52.1176 at Thu Oct 26 10:44:23 2023

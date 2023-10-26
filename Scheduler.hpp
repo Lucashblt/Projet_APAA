@@ -5,10 +5,10 @@
 #include <chrono>
 #include <vector>
 
-class Server;  // Forward declaration of Server class
+class Server;  
 
 template <typename T>
-class Sensor;  // Forward declaration of Sensor class
+class Sensor;  
 
 template <typename T>
 class Scheduler {
@@ -22,9 +22,9 @@ public:
 
 private:
     Server* server;
-    std::vector<Sensor<T>*> sensors; // Use std::vector<Sensor<T>*> for storing sensors
+    std::vector<Sensor<T>*> sensors;
     std::vector<std::chrono::milliseconds> intervals;
-    std::vector<std::string> sensorNames; // Store the sensor names
+    std::vector<std::string> sensorNames; 
 };
 
 #endif

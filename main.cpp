@@ -4,13 +4,15 @@
 #include "Scheduler.hpp"
 
 int main() {
+    //initialisation du generateur de nombre aleatoire
     srand(time(nullptr));
 
+    //Cree d'un objet server
     Server server;
-    server.setConsolActivation(true); // Enable console output
-    server.setLogActivation(true); // Enable log output
+    server.setConsolActivation(true); // Active la console
+    server.setLogActivation(true); //Active le fichier
     
-
+    //Creation des capteurs de temperature, humidite, lumiere et sons
     std::cout << "Creating sensor" << std::endl;
     Sensor<float> temperatureSensor;
     temperatureSensor.setServer(&server);
@@ -21,10 +23,12 @@ int main() {
     Sensor<int> soundSensor;
     soundSensor.setServer(&server);
 
+    // Création des planificateurs (Schedulers) pour les différents types de capteurs
     Scheduler<float> schedulerFloat(&server);
     Scheduler<bool> schedulerBool(&server);
     Scheduler<int> schedulerInt(&server);
 
+    // Ajoute les capteurs avec leurs intervals et declaration des noms des capteurs
     std::cout << "Adding sensor to scheduler" << std::endl;
     schedulerFloat.addSensor(&temperatureSensor, std::chrono::seconds(1));
     schedulerFloat.setSensorName(&temperatureSensor, "temperature");
@@ -35,12 +39,14 @@ int main() {
     schedulerInt.addSensor(&soundSensor, std::chrono::seconds(4));
     schedulerInt.setSensorName(&soundSensor, "sound");
     
+    //boucle infini pour faire fonctionner le programme
     while(true){
+        //demarre le planificateur pour chaque type de capteur
         schedulerFloat.startScheduling();
         schedulerBool.startScheduling();
         schedulerInt.startScheduling();
     }
-    
+
     return 0;
 }
 

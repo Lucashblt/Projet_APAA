@@ -1,0 +1,3 @@
+Sensor sound data : 119 at Thu Oct 26 10:44:08 2023
+Sensor sound data : 49 at Thu Oct 26 10:44:18 2023
+Sensor sound data : 56 at Thu Oct 26 10:44:28 2023
