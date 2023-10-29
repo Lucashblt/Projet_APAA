@@ -1,5 +1,6 @@
 #include "Server.hpp"
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <ctime>
@@ -75,13 +76,29 @@ void Server::dataRcv(const std::string& sensorName, T dataSens) {
 // Ecrit dans la console pour les capteurs temperature, humidite et sons
 template <typename T>
 void Server::consoleWrite(const std::string& sensorName, T dataSens) {
-    std::cout << "Sensor "<< sensorName <<  " data : " << dataSens << std::endl;
+    std::stringstream output;
+    output << "Sensor " << sensorName << " data : " << dataSens;
+    // Afficher la chaîne de caractères dans std::cout
+    std::cout << output.str() << std::endl;
 }
 
 // Ecrit dans la console pour le capteur lumière
 template <>
 void Server::consoleWrite<bool>(const std::string& sensorName, bool dataSens) {
-    std::cout <<"Sensor " << sensorName << " is " << (dataSens ? "On" : "Off") << std::endl;
+    std::stringstream output;
+    output << "Sensor " << sensorName << " is " << (dataSens ? "On" : "Off");
+    // Afficher la chaîne de caractères dans std::cout
+    std::cout << output.str() << std::endl;
+}
+
+// avoir l'heure et la date actuelle
+std::string currentDateTime() {
+	std::time_t t = std::time(nullptr);
+	std::tm* now = std::localtime(&t);
+
+	char buffer[128];
+	strftime(buffer, sizeof(buffer), "%m-%d-%Y %X", now);
+	return buffer;
 }
 
 // Ecrit dans le fichier les valeurs des capteurs (chaque capteur a son propre fichier)
@@ -93,11 +110,11 @@ void Server::fileWrite(const std::string& sensorName, T dataSens) {
     if (!Myfile.is_open()) {
         std::cout << "failed to open" << std::endl;
     } else {
-        time_t currentTime = time(nullptr);
+        Myfile << currentDateTime();
         if(sensorName == "light"){
-            Myfile << "Sensor "<< sensorName <<" is " << (dataSens ? "On" : "Off") << " at " << ctime(&currentTime);
+            Myfile << " : Sensor "<< sensorName <<" is " << (dataSens ? "On" : "Off") << std::endl;
         }else {
-            Myfile << "Sensor "<< sensorName <<" data : " << dataSens << " at " << ctime(&currentTime);
+            Myfile << " : Sensor "<< sensorName <<" data : " << dataSens << std::endl;
         }
         Myfile.close();
     }

@@ -18,12 +18,12 @@ public:
 
     Server& operator=(const Server& server);
 
+    //friend std::ostream& operator<<(std::ostream& os, int dataSens);
+    //friend std::ostream& operator<<(std::ostream& os, float dataSens_toString);
+
     void setConsolActivation(bool activateConsole);
     void setLogActivation(bool activateLog);
-    /*
-    std::ostream& operator<<(std::ostream& os, int dataSens);
-    std::ostream& operator<<(std::ostream& os, float dataSens_toString);
-    */
+    
     template <typename T>
     void dataRcv(const std::string& sensorName, T dataSens);
         
@@ -32,7 +32,6 @@ private:
     int nbrOfSensors;
     bool consolActivation;
     bool logActivation;
-
     template <typename T>
     void consoleWrite(const std::string& sensorName, T dataSens);
     template <typename T>

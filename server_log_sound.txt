@@ -1,3 +1,5 @@
-Sensor sound data : 119 at Thu Oct 26 10:44:08 2023
-Sensor sound data : 49 at Thu Oct 26 10:44:18 2023
-Sensor sound data : 56 at Thu Oct 26 10:44:28 2023
+10-29-2023 19:02:23 : Sensor sound data : 78
+10-29-2023 20:43:08 : Sensor sound data : 34
+10-29-2023 20:43:12 : Sensor sound data : 72
+10-29-2023 20:43:16 : Sensor sound data : 69
+10-29-2023 20:43:20 : Sensor sound data : 71
