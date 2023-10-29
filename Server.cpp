@@ -29,6 +29,14 @@ Server::Server(const Server& server) {
 //destructeur
 Server::~Server() {}
 
+
+int Server::getNumberOfSensors() const {
+    return nbrOfSensors;
+}
+void Server::incrementNumberOfSensors() {
+    ++nbrOfSensors;
+}
+
 // Active la console
 void Server::setConsolActivation(bool activateConsole) {
     consolActivation = activateConsole;
@@ -51,16 +59,13 @@ Server& Server::operator=(const Server& server) {
 }
 
 // surcharge operateur <<
-/*
-std::ostream& operator<<(std::ostream& os, int dataSens) {
-    os << "Sensor Data: " << std::to_string(dataSens) << std::endl;
+std::ostream& operator<<(std::ostream& os, const Server& server) {
+    os << "Number of Sensors: " << server.nbrOfSensors << std::endl;
+    os << "Console Activation: " << (server.consolActivation ? "Active" : "Inactive") << std::endl;
+    os << "Log Activation: " << (server.logActivation ? "Active" : "Inactive") << std::endl;
     return os;
 }
-std::ostream& operator<<(std::ostream& os, float dataSens_toString) {
-    os << "Sensor Data: " << std::to_string(dataSens_toString) << std::endl;
-    return os;
-}
-*/
+
 
 // function de reception des données
 template <typename T>
@@ -78,7 +83,6 @@ template <typename T>
 void Server::consoleWrite(const std::string& sensorName, T dataSens) {
     std::stringstream output;
     output << "Sensor " << sensorName << " data : " << dataSens;
-    // Afficher la chaîne de caractères dans std::cout
     std::cout << output.str() << std::endl;
 }
 
@@ -87,7 +91,6 @@ template <>
 void Server::consoleWrite<bool>(const std::string& sensorName, bool dataSens) {
     std::stringstream output;
     output << "Sensor " << sensorName << " is " << (dataSens ? "On" : "Off");
-    // Afficher la chaîne de caractères dans std::cout
     std::cout << output.str() << std::endl;
 }
 
@@ -95,12 +98,10 @@ void Server::consoleWrite<bool>(const std::string& sensorName, bool dataSens) {
 std::string currentDateTime() {
 	std::time_t t = std::time(nullptr);
 	std::tm* now = std::localtime(&t);
-
 	char buffer[128];
 	strftime(buffer, sizeof(buffer), "%m-%d-%Y %X", now);
 	return buffer;
 }
-
 // Ecrit dans le fichier les valeurs des capteurs (chaque capteur a son propre fichier)
 template <typename T>
 void Server::fileWrite(const std::string& sensorName, T dataSens) {

@@ -5,9 +5,9 @@
 #include "Sensor.hpp"
 #include "Scheduler.hpp"
 
+//Cree d'un objet server
 Server server;
 
-    
 // Création des planificateurs (Schedulers) pour les différents types de capteurs
 Scheduler<float> schedulerFloat(&server);
 Scheduler<float> schedulerFloat2(&server);
@@ -19,9 +19,9 @@ int main() {
     //initialisation du generateur de nombre aleatoire
     srand(time(nullptr));
 
-    //Cree d'un objet server
     server.setConsolActivation(true); // Active la console
     server.setLogActivation(true); //Active le fichier
+
     
     //Creation des capteurs de temperature, humidite, lumiere et sons
     std::cout << "Creating sensor" << std::endl;
@@ -61,6 +61,10 @@ int main() {
     schedulerInt.addSensor(&soundSensor, std::chrono::seconds(intervalSound));
     schedulerInt.setSensorName(&soundSensor, "sound");
     
+    
+    std::cout << server; // affiche les informations du serveurs
+
+
     // Lancement des planificateurs dans des threads séparés
     std::thread t1([]() {
         schedulerFloat2.startScheduling();
@@ -71,15 +75,18 @@ int main() {
     std::thread t3([]() {
 		schedulerBool.startScheduling();
 	});
-    
+
     /*
     // Attendez que tous les threads aient démarré
     t1.join();
     t2.join();
     t3.join();
     */
+
     // Lance le planificateur pour le capteur sound
     schedulerInt.startScheduling();
+
+    
    
     return 0;
 }

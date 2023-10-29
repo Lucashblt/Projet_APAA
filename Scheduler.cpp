@@ -21,6 +21,7 @@ template <typename T>
 void Scheduler<T>::addSensor(Sensor<T>* sensor, std::chrono::milliseconds interval) {
     sensors.push_back(sensor);
     intervals.push_back(interval);
+    server->incrementNumberOfSensors();
 }
 
 // Definition du nom du capteur
@@ -40,10 +41,8 @@ void Scheduler<T>::startScheduling() {
 
             // Appele le capteur pour lire sa valeur
             sensor->readData();
-
             // recois la valeur lue depuis le capteur
             T data = sensor->sendData();
-
             // Envoie la valeur au serveur pour affichage dans la console et écriture dans un fichier
             if (server != nullptr) {
                 server->dataRcv(name, data);

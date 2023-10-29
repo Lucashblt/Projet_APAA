@@ -12,19 +12,19 @@ class Sensor;
 
 template <typename T>
 class Scheduler {
-public:
-    Scheduler(Server* server);
-    ~Scheduler();
+    private:
+        Server* server;
+        std::vector<Sensor<T>*> sensors;
+        std::vector<std::chrono::milliseconds> intervals;
+        std::vector<std::string> sensorNames; 
 
-    void addSensor(Sensor<T>* sensor, std::chrono::milliseconds interval);
-    void setSensorName(Sensor<T>* sensor, const std::string& name);
-    void startScheduling();
-    
-private:
-    Server* server;
-    std::vector<Sensor<T>*> sensors;
-    std::vector<std::chrono::milliseconds> intervals;
-    std::vector<std::string> sensorNames; 
+    public:
+        Scheduler(Server* server);
+        ~Scheduler();
+
+        void addSensor(Sensor<T>* sensor, std::chrono::milliseconds interval);
+        void setSensorName(Sensor<T>* sensor, const std::string& name);
+        void startScheduling();    
 };
 
 #endif
