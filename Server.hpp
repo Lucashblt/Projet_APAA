@@ -14,10 +14,7 @@ class Server {
         int nbrOfSensors;
         bool consolActivation;
         bool logActivation;
-        template <typename T>
-        void consoleWrite(const std::string& sensorName, T dataSens);
-        template <typename T>
-        void fileWrite(const std::string& sensorName, T dataSens);
+        
 
     public:
         Server();
@@ -37,6 +34,11 @@ class Server {
         
         template <typename T>
         void dataRcv(const std::string& sensorName, T dataSens);
+
+        template <typename T>
+        void consoleWrite(const std::string& sensorName, T dataSens);
+        template <typename T>
+        void fileWrite(const std::string& sensorName, T dataSens);
 
 };
 

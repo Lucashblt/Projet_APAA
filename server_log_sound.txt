@@ -17,3 +17,14 @@
 10-29-2023 22:43:50 : Sensor sound data : 36
 10-29-2023 22:58:51 : Sensor sound data : 101
 10-29-2023 22:58:55 : Sensor sound data : 58
+10-29-2023 23:11:28 : Sensor sound data : 100
+10-29-2023 23:11:32 : Sensor sound data : 39
+10-29-2023 23:11:36 : Sensor sound data : 79
+10-29-2023 23:11:40 : Sensor sound data : 114
+10-30-2023 10:31:20 : Sensor sound data : 27
+10-30-2023 10:31:24 : Sensor sound data : 62
+10-30-2023 10:31:28 : Sensor sound data : 37
+10-30-2023 10:32:35 : Sensor sound data : 15
+10-30-2023 10:32:39 : Sensor sound data : 81
+10-30-2023 10:32:43 : Sensor sound data : 48
+10-30-2023 10:32:47 : Sensor sound data : 53

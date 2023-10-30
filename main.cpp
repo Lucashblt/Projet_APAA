@@ -5,6 +5,8 @@
 #include "Sensor.hpp"
 #include "Scheduler.hpp"
 
+/*Realisation d'un simulateur de station météo */
+
 //Cree d'un objet server
 Server server;
 

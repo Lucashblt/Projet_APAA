@@ -38,6 +38,10 @@ void Scheduler<T>::startScheduling() {
             Sensor<T>* sensor = sensors[i];
             std::chrono::milliseconds interval = intervals[i];
             std::string name = sensorNames[i];
+        /*for (Sensor<T>* sensor : sensors) {
+            // Récupérez les informations nécessaires du capteur
+            std::chrono::milliseconds interval = intervals;
+            std::string name = sensorNames;*/
 
             // Appele le capteur pour lire sa valeur
             sensor->readData();
@@ -52,7 +56,6 @@ void Scheduler<T>::startScheduling() {
         }
     }
 } 
-
 
 
 // Instanciations explicites pour les types de données supportés

@@ -59,3 +59,16 @@
 10-29-2023 22:58:51 : Sensor light is On
 10-29-2023 22:58:54 : Sensor light is On
 10-29-2023 22:58:57 : Sensor light is Off
+10-29-2023 23:11:28 : Sensor light is On
+10-29-2023 23:11:31 : Sensor light is On
+10-29-2023 23:11:34 : Sensor light is Off
+10-29-2023 23:11:37 : Sensor light is Off
+10-29-2023 23:11:40 : Sensor light is On
+10-30-2023 10:31:20 : Sensor light is On
+10-30-2023 10:31:23 : Sensor light is On
+10-30-2023 10:31:26 : Sensor light is Off
+10-30-2023 10:32:35 : Sensor light is On
+10-30-2023 10:32:38 : Sensor light is On
+10-30-2023 10:32:41 : Sensor light is Off
+10-30-2023 10:32:44 : Sensor light is Off
+10-30-2023 10:32:47 : Sensor light is On
