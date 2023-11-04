@@ -38,11 +38,7 @@ void Scheduler<T>::startScheduling() {
             Sensor<T>* sensor = sensors[i];
             std::chrono::milliseconds interval = intervals[i];
             std::string name = sensorNames[i];
-        /*for (Sensor<T>* sensor : sensors) {
-            // Récupérez les informations nécessaires du capteur
-            std::chrono::milliseconds interval = intervals;
-            std::string name = sensorNames;*/
-
+        
             // Appele le capteur pour lire sa valeur
             sensor->readData();
             // recois la valeur lue depuis le capteur

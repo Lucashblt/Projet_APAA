@@ -78,18 +78,8 @@ int main() {
 		schedulerBool.startScheduling();
 	});
 
-    /*
-    // Attendez que tous les threads aient démarré
-    t1.join();
-    t2.join();
-    t3.join();
-    */
-
     // Lance le planificateur pour le capteur sound
     schedulerInt.startScheduling();
-
-    
-   
     return 0;
 }
 
